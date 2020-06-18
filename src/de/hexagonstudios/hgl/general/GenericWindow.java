@@ -10,8 +10,8 @@ import javax.swing.JFrame;
  * 
  * @author Felix Eckert
  * */
-public class GenericWindow extends JFrame {
-	private Canvas cvs;
+public class GenericWindow extends Canvas {
+	private JFrame frame;
 	
 	/**
 	 * Constructor for GenericWindow
@@ -22,15 +22,14 @@ public class GenericWindow extends JFrame {
 	 * @author Felix Eckert
 	 * */
 	public GenericWindow(String name, Dimension res) {
-		super(name);
+		frame = new JFrame(name);
+		frame.setSize(res);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+		
 		setSize(res);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
 		
-		cvs = new Canvas();
-		cvs.setSize(res);
-		
-		add(cvs);
+		frame.add(this);
 	}
 	
 	/**
@@ -42,5 +41,5 @@ public class GenericWindow extends JFrame {
 		setVisible(true);
 	}
 	
-	public Canvas getCvs() { return this.cvs; }
+	public JFrame getFrame() { return this.frame; }
 }

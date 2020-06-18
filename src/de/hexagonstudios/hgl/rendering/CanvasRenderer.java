@@ -41,8 +41,8 @@ public class CanvasRenderer {
 		
 		g = bs.getDrawGraphics();
 		g.clearRect(0, 0, frame.getWidth(), frame.getHeight());
-		if (userRenderer != null)
-			userRenderer.render(g);
+		
+		userRenderer.render(g);
 		
 		g.dispose();
 		bs.show();
